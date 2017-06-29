@@ -88,6 +88,9 @@ class Cart implements Arrayable, Jsonable
     }
 
 
+    /**
+     * @return CouponsCollection
+     */
     private function coupons()
     {
         return $this->coupons;
@@ -161,6 +164,23 @@ class Cart implements Arrayable, Jsonable
         $this->collection = new CartCollection();
         $this->coupons    = new CouponsCollection();
         $this->triggerEvent('action.flush');
+    }
+
+    /**
+     * Set quantity for a product
+     *
+     * @param $model
+     * @param $q
+     * @return bool
+     */
+    public function setQuantity($model, $q){
+        if (!is_numeric( $q )) return false;
+        if ($q < 0 || $q == 0) $this->remove($model);
+        $item = new Item($model);
+        if ($this->getCollection()->has($item->getId())) {
+            $item->setQuantity($q);
+            $this->getCollection()->putItem($item);
+        }
     }
 
     /**
