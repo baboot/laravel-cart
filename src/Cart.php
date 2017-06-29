@@ -180,6 +180,7 @@ class Cart implements Arrayable, Jsonable
         if ($this->getCollection()->has($item->getId())) {
             $item->setQuantity($q);
             $this->getCollection()->putItem($item);
+            $this->triggerEvent('action.updated', $item);
         }
     }
 
