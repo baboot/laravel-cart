@@ -14,20 +14,7 @@
     "autoload": {
         "psr-4": {
             "Baboot\\": "src/"
-        },
-        "files": [
-            "src/Laracasts/Flash/functions.php"
-        ]
-    },
-    "minimum-stability": "stable",
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Laracasts\\Flash\\FlashServiceProvider"
-            ],
-            "aliases": {
-                "Flash": "Laracasts\\Flash\\Flash"
-            }
         }
-    }
+    },
+    "minimum-stability": "stable"
 }
