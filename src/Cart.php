@@ -102,7 +102,6 @@ class Cart implements Arrayable, Jsonable
             'type'  => $type,
             'value' => $value
         ]));
-        $this->triggerEvent('action.coupon.added');
     }
 
     /**
@@ -133,7 +132,7 @@ class Cart implements Arrayable, Jsonable
         if ($this->getCollection()->has($item->getId())) {
             $this->getCollection()->forget($item->getId());
         }
-        $this->triggerEvent('removed', $item);
+        $this->triggerEvent('action.removed', $item);
     }
 
     /**
@@ -155,6 +154,20 @@ class Cart implements Arrayable, Jsonable
         });
     }
 
+    /**
+     * Reset
+     */
+    public function flush(){
+        $this->collection = new CartCollection();
+        $this->coupons    = new CouponsCollection();
+        $this->triggerEvent('action.flush');
+    }
+
+    /**
+     * Get total amount. Applying all coupons on a subtotal
+     *
+     * @return mixed
+     */
     public function total()
     {
         $total = $this->subTotal();
@@ -175,6 +188,8 @@ class Cart implements Arrayable, Jsonable
     }
 
     /**
+     * Trigger event on laravel event bus
+     *
      * @param $name
      * @param $data
      */
@@ -183,6 +198,8 @@ class Cart implements Arrayable, Jsonable
     }
 
     /**
+     * Getter for a cart primary key
+     *
      * @return mixed
      */
     public function getKey()

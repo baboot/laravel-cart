@@ -82,6 +82,12 @@ get total in cart with price modifacators(coupons)
 \Cart::total()
 ```
 
+### change quantity
+set quantity for a product
+```php
+\Cart::setQuantity($model, $quantity)
+```
+
 ##Events
 
 **cart.inited** 
@@ -90,7 +96,11 @@ get total in cart with price modifacators(coupons)
 
 **cart.action.removed**
 
+**cart.action.flush**
+
 **cart.action.coupon.added**
+
+
 
 
 ## Storage
