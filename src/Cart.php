@@ -102,6 +102,7 @@ class Cart implements Arrayable, Jsonable
             'type'  => $type,
             'value' => $value
         ]));
+        $this->triggerEvent('action.coupon.added');
     }
 
     /**
