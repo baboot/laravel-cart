@@ -1,0 +1,33 @@
+{
+    "name": "baboot/cart",
+    "description": "Cart for laravel",
+    "authors": [
+        {
+            "name": "Baboot",
+            "email": "baboot.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "laravel/laravel": ">=5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Baboot\\": "src/"
+        },
+        "files": [
+            "src/Laracasts/Flash/functions.php"
+        ]
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laracasts\\Flash\\FlashServiceProvider"
+            ],
+            "aliases": {
+                "Flash": "Laracasts\\Flash\\Flash"
+            }
+        }
+    }
+}
