@@ -83,6 +83,7 @@ get total in cart with price modifacators(coupons)
 ```
 
 ##Events
+
 **cart.inited** 
 
 **cart.action.added**
@@ -90,3 +91,9 @@ get total in cart with price modifacators(coupons)
 **cart.action.removed**
 
 **cart.action.coupon.added**
+
+
+## Storage
+You can store cart in **DB** ot **Redis**.
+Specify **CART_STORAGE** var in your .env file, or change it config (cart.php)
+Also you can create your own driver(implementing **Baboot\Contracts\Storage** ) and add it in **storageDrivers** directive in config and use them. 
