@@ -84,5 +84,9 @@ get total in cart with price modifacators(coupons)
 
 ##Events
 **cart.inited** 
+
 **cart.action.added**
+
 **cart.action.removed**
+
+**cart.action.coupon.added**
