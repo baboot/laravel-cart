@@ -88,7 +88,7 @@ set quantity for a product
 \Cart::setQuantity($model, $quantity)
 ```
 
-##Events
+## Events
 
 **cart.inited** 
 
